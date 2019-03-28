@@ -33,3 +33,13 @@ Route::post('/student/add', [
     'uses' => 'StudentsController@store',
     'as' => 'student.add'
 ]);
+
+Route::get('/student/edit/{id}', [
+    'uses' => 'StudentsController@edit',
+    'as' => 'student.edit'
+]);
+
+Route::post('/student/update/{id}', [
+    'uses' => 'StudentsController@update',
+    'as' => 'student.update'
+]);

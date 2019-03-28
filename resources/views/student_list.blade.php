@@ -31,7 +31,7 @@
                         <td>{{ $student->course }}</td>
                         <td>{{ $student->address }}</td>
                         <td>{{ $student->mobile }}</td>
-                        <td><a href="#" class='btn btn-success btn-md'>edit</a></td>
+                        <td><a href="{{ route('student.edit', ['id' => $student->id]) }}" class='btn btn-success btn-md'>edit</a></td>
                         <td><a href="#" class='btn btn-danger btn-md'>delete</a></td>
                     </tr>
                 @endforeach

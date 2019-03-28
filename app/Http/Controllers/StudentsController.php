@@ -87,7 +87,23 @@ class StudentsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required',
+            'course' => 'required',
+            'address' => 'required',
+            'mobile' => 'required|max:10'
+        ]);
+
+        $student = Student::find($id);
+
+        $student->name = $request->name;
+        $student->course = $request->course;
+        $student->address = $request->address;
+        $student->mobile = $request->mobile;
+
+        $student->save();
+
+        return redirect()->route('stu-list');
     }
 
     /**
