@@ -18,6 +18,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/toastr.min.css') }}">
 </head>
 <body>
     <div id="app">
@@ -76,5 +77,15 @@
             @yield('content')
         </main>
     </div>
+    <script src="/js/app.js"></script>
+    <script src="/js/toastr.min.js"></script>
+    <script>
+        @if(Session::has('success'))
+            toastr.success("{{ Session::get('success') }}");
+        @endif
+        @if(Session::has('info'))
+            toastr.info("{{ Session::get('info') }}");
+        @endif
+    </script>
 </body>
 </html>

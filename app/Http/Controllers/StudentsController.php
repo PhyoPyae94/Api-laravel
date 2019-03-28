@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Session;
 use App\Student;
 use Illuminate\Http\Request;
 
@@ -50,6 +51,8 @@ class StudentsController extends Controller
         $student->mobile = $request->mobile;
 
         $student->save();
+
+        Session::flash('success', 'successfully added');
 
         return redirect()->route('stu-list'); 
     }
@@ -103,6 +106,8 @@ class StudentsController extends Controller
 
         $student->save();
 
+        Session::flash('success', 'successfully updated');
+
         return redirect()->route('stu-list');
     }
 
@@ -117,6 +122,8 @@ class StudentsController extends Controller
         $student = Student::find($id);
 
         $student->forceDelete();
+
+        Session::flash('success', 'Deleted');
 
         return redirect()->back();
     }
