@@ -16,6 +16,19 @@ class StudentsController extends Controller
 
         return StudentResource::collection($students);
     }
+
+    public function eachID($id)
+    {
+        $students = Student::find($id);
+        if($students)
+        {
+            return new StudentResource($students);
+        }
+        else
+        {
+            return response()->json(['404 error'=>'No data available on this ID:'.$id.''], 404);
+        }
+    }
     /**
      * Display a listing of the resource.
      *
