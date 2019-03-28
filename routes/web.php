@@ -43,3 +43,8 @@ Route::post('/student/update/{id}', [
     'uses' => 'StudentsController@update',
     'as' => 'student.update'
 ]);
+
+Route::get('/student/delete/{id}', [
+    'uses' => 'StudentsController@destroy',
+    'as' => 'student.delete'
+]);
