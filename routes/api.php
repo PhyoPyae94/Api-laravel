@@ -17,6 +17,23 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/students', 'StudentsController@showAll');
+Route::get('/students', [
+    'uses' => 'StudentsController@showAll',
+    'as' => 'students'
+] );
 
-Route::get('/students/{id}', 'StudentsController@eachID');
+Route::get('/students/{id}', [
+    'uses' => 'StudentsController@eachID',
+    'as' => 'students'
+]);
+
+Route::get('/users', [
+    'uses' => 'TestsController@allUsers',
+    'as' => 'users'
+]);
+
+Route::get('/users/{id}', [
+    'uses' => 'TestsController@eachUsers',
+    'as' => 'users'
+]);
+
